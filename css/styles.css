@@ -6,9 +6,24 @@ body {
 	animation: gradient 15s ease infinite;
 }
 
+
 nav {
 	font-size: 1.5rem;
 }
+.card-img-top{
+	width:100%;
+	height:auto;
+  }
+
+.card-bg{
+	background-color: #414141;
+	border-radius: 10%;
+	margin-left: 1.5rem;
+	margin-right: 1.5rem;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -20,3 +35,4 @@ nav {
 		background-position: 0% 50%;
 	}
 }
+
