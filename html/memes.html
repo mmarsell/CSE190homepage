@@ -10,13 +10,20 @@
 <body>
     <div class="container-fluid">
         <div id="load-nav"></div>
-        <figure class="text-center"> 
-            <img id="localmeme" class="img-fluid">
-            <figcaption>
-                <button type="button" class="btn btn-primary" onclick="generateMeme()">Generate random meme</button>
-            </figcaption>
-        </figure>
-        <div id ="redditmeme" class="card card-body bg-light"></div>
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img id="localmeme" class="card-img-top img-fluid" alt="meme">
+                </div>
+                <div class="card-footer text-center">
+                    <button type="button" class="btn btn-primary" onclick="generateMeme()">Generate random meme</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div id="redditmeme"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -42,7 +49,7 @@
                 .then(function(res){
                     let current, markup =``;
                     const posts = res.data.children;
-                    markup=`<h3>Top post from r/ProgrammerHumor </h3>`
+                    markup=`<h3 class="text-center">Top post from r/ProgrammerHumor </h3>`
                     for (let i=0; i < 6; i++){
                         current = posts[i].data;
                         markup += `
