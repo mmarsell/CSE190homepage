@@ -10,9 +10,14 @@
 <body>
     <div class="container-fluid">
         <div id="load-nav"></div>
-        <div class="card-deck text-center">
-            <div id="redditmeme"></div>
+        <div class="row">
+            <div class="col d-flex justify-content-center"> 
+                <div class="card card-bg text-center">
+                    <div id="redditmeme"></div>
+                </div>
+            </div>
         </div>
+
     </div>
 
     <!--Bootstrap scripts-->
@@ -37,7 +42,7 @@
                 .then(function(res){
                     let current, markup =``;
                     const posts = res.data.children;
-                    markup=`<h3 class="text-center">Top post from r/ProgrammerHumor </h3>`
+                    markup=`<h3 class="text-center">Top posts from r/ProgrammerHumor </h3>`
                     for (let i=0; i < 6; i++){
                         current = posts[i].data;
                         markup += `
