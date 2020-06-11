@@ -12,7 +12,8 @@
         <div id="load-nav"></div>
         <div class="row">
             <div class="col d-flex justify-content-center"> 
-                <div class="card card-bg text-center">
+                <div id="loader"></div>
+                <div class="card card-bg content text-center">
                     <div id="redditmeme"></div>
                 </div>
             </div>
@@ -26,14 +27,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="../js/loadNav.js"></script>
     <script>
-        $(document).ready(function() {
-            generateMeme();
-        });
-        function generateMeme() {
-            var ran = Math.floor((Math.random()*10)+1)
-            var result = '../images/memes/'+ran.toString()+'.png'
-            document.getElementById("localmeme").src=result;
-        }
+         var preloader = document.getElementById("loader");
+         window.onload = function (){
+             preloader.style.display = "none";
+         }
             //code tutorial from https://iq.opengenus.org/get-list-of-posts-using-reddit-api/
             fetch('https://www.reddit.com/r/programmerhumor/top.json')
                 .then(function(res){
