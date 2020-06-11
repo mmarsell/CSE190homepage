@@ -11,7 +11,12 @@
     <div class="container-fluid">
         <div id="load-nav"></div>
         <div class="row">
-            <div class="col">
+            <div class="col d-flex justify-content-center">
+                <div class="card bg-light">
+                    <img id="meme" class="card-img-top img-thumbnail" src="">
+                    <div class="card-body d-flex justify-content-center">
+                      <button type="button" class="btn btn-primary btn-lg " onclick="generateMeme()">Generate random meme</button>
+                    </div>
             </div>
         </div>   
     </div>
@@ -21,5 +26,12 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="../js/loadNav.js"></script>
+    <script>
+        function generateMeme() {
+            var ran = Math.floor((Math.random()*10)+1)
+            var result = '../images/memes/'+ran.toString()+'.png'
+            document.getElementById("meme").src=result;
+        }
+    </script>
 </body>
 </html>
