@@ -12,13 +12,17 @@
         <div id="load-nav"></div>
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <div class="card bg-light">
-                    <img id="meme" class="card-img-top img-thumbnail" src="">
-                    <div class="card-body d-flex justify-content-center">
-                      <button type="button" class="btn btn-primary btn-lg " onclick="generateMeme()">Generate random meme</button>
+                    <div class="card bg-light">
+                        <img id="localmeme" class="card-img-top img-thumbnail" src="">
+                        <div class="card-body d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary" onclick="generateMeme()">Generate random meme</button>
+                        </div>
                     </div>
+        </div> 
+        <div class="col d-flex justify-content-center">
+            <div id ="redditmeme" class="card card-body bg-light">
             </div>
-        </div>   
+        </div>  
     </div>
 
     <!--Bootstrap scripts-->
@@ -30,8 +34,37 @@
         function generateMeme() {
             var ran = Math.floor((Math.random()*10)+1)
             var result = '../images/memes/'+ran.toString()+'.png'
-            document.getElementById("meme").src=result;
+            document.getElementById("localmeme").src=result;
         }
+            //code tutorial from https://iq.opengenus.org/get-list-of-posts-using-reddit-api/
+            fetch('https://www.reddit.com/r/programmerhumor/top.json')
+                .then(function(res){
+                    return res.json();
+                })
+                .then(function(res){
+                    let current, markup =``;
+                    const posts = res.data.children;
+                    markup=`<h3>Top post from r/ProgrammerHumor </h3>`
+                    for (let i=0; i < 6; i++){
+                        current = posts[i].data;
+                        markup += `
+                            <a class="post" target="_blank" href="https://www.reddit.com/${current.permalink}">
+                                <div class ="title">${current.title}</div>
+                                <div> 
+                                    ${current.selftext}
+                                    </br></br>
+                                    <span>${current.url}</span>
+                                </div>
+                                <div class="author">Posted by ${current.author} </div>
+                            </a>`;
+                        }
+                    memeCard = document.getElementById("redditmeme")
+                    memeCard.insertAdjacentHTML("afterbegin",markup);
+                })
+                .catch(function(err){
+                    console.log(err)
+                })
+    
     </script>
 </body>
 </html>
