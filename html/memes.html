@@ -28,9 +28,6 @@
     <script src="../js/loadNav.js"></script>
     <script>
          var preloader = document.getElementById("loader");
-         window.onload = function (){
-             preloader.style.display = "none";
-         }
             //code tutorial from https://iq.opengenus.org/get-list-of-posts-using-reddit-api/
             fetch('https://www.reddit.com/r/programmerhumor/top.json')
                 .then(function(res){
@@ -55,6 +52,7 @@
                         }
                     memeCard = document.getElementById("redditmeme")
                     memeCard.insertAdjacentHTML("afterbegin",`<div class="card">${markup}</div>`);
+                    preloader.style.display = "none";
                 })
                 .catch(function(err){
                     console.log(err)

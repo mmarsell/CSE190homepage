@@ -15,43 +15,129 @@
     <div class="container-fluid">
         <div id="load-nav"></div>
         <div class="container">
-            <div class="card-deck">
-                <div class="card panel-gradient">
-                    <img class="card-img-top" src="../images/lads/michael.jpg" class="profile-pic" alt="Michael Marsella">
-                    <div class="card-body">
-                        <h5 class="card-title text-center text-white font-weight-bold">Michael Marsella</h5>
-                        <h6 class="card-subtitle mb-2 text-warning text-center">Software Engineer, Youtuber</h6>
-                        <p class="card-text text-white">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Nec ullamcorper sit amet risus nullam eget felis eget nunc.
-                            Velit euismod in pellentesque massa placerat.
-                        </p>
-                    </div>
-                    <div class="card-footer panel-gradient text-center">
-                        <a href="https://michaelmarsella.com/" target="_blank" class="card-link"><i class="fas fa-globe fa-3x"></i></a>
-                        <a href="https://github.com/mmarsell" target="_blank" class="card-link"><i class="fab fa-github-alt fa-3x"></i></a>
-                        <a href="https://www.linkedin.com/in/michael-marsella/" target="_blank" class="card-link"><i class="fab fa-linkedin fa-3x"></i></a>
-                    </div>
+            <div class="row">
+                <div class="col">
+                    <!--Tabs from https://codepen.io/cristinaconacel/pen/ePVMME?editors=1010-->
+                    <div class="card text-center card-bg">
+                        <div class="card-header">
+                          <ul class="nav nav-tabs card-header-tabs" id="aboutTabs" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#overviewTab" role="tab">Overview</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#htmlTab" role="tab">HTML</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#cssTab" role="tab">CSS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#jsTab" role="tab">JS</a>
+                              </li>
+                          </ul>
+                        </div>
+                        <div class="card-body bg-light">
+                          <div class="tab-content">
+                              <div class="tab-pane active" id="overviewTab" role="tabpanel">
+                                <h3>General Overview</h3>
+                                <p>When designing this site, we felt simplicity was key. We wanted to ensure that it was easy to navigate,
+                                    easy to understand, and intuitive to use. We realized that when desiging a website for a university class,
+                                    mobile layout and performance are incredibly important, as many students check class information on their
+                                    phones and on the go. Therefore, we decided to use Bootstrap as a framework to ensure a more mobile-friendly
+                                    experience.
+                                    <br></br>
+                                    To help with our mobile-oriented design, we decided to utilize "cards" throughout the webpages, which we
+                                    think creates a sleeker, more concise, and more intuitive mobile experience (with a specific focus on scrolling, rather than navigating tabs). 
+                                    Additionally, when building this
+                                    site we implemented many of the optimization techniques we learned throughout CSE 190, the specifics of which
+                                    you can see above in the associated tabs. Given the size and nature of our webpage, the opimizations we made were fairly light,
+                                    but as we learned in class, everything counts!
+                                    <br></br>
+                                    You can find the Lighthouse analysis of this site below:
+                                </p>
+                                <button class="btn btn-primary" href="#">Performance score</button>
+                              </div>
+                              <div class="tab-pane" id="htmlTab" role="tabpanel">
+                                <h3>HTML Optimizations</h3>
+                                <p>With the pages, we wanted to focus on simplicity and succintness. Several times we either combined pages or 
+                                    scrapped pages altogether in-order to decrease our overall shipping size. At the end of our development, we
+                                    utilized an html minifier to remove all unneccessary whitespace and redundant tags, further decreasing the size
+                                    of our html pages. 
+                                    <br></br>
+                                    As we have seen through the course, images can often cause performance slow-downs. Thus we made it a priority
+                                    to compress all our local images (using tools like TinyJpg). We decided to keep them in either .png or .jpg format, although we could have 
+                                    seen potentially higher compression savings if converted to webp, but currently webp is not supported across all 
+                                    broswers and we didn't want to alienate a group of users. 
+                                </p>
+                              </div>
+                              <div class="tab-pane" id="cssTab" role="tabpanel">
+                                <h3>CSS Optimizations</h3>
+                                <p> You may have noticed that our styles.css file is fairly small, this is because we decided to utilize
+                                    many of the pre-included css styles provided by Bootstrap and fontawesome. One interesting take-away that
+                                    we learned was that the animated background is pure css, and requires no javascript (which many animations do).
+                                    We've found its better to do things with just pure css and html if possible, to avoid potential problems and slow-downs 
+                                    that come with lots of javascript. 
+                                    <br></br>
+                                    Additionally, we used a css minifier to reduce our overall file size and load time, similar to our html optimizations.
+                                </p>
+                              </div>
+                              <div class="tab-pane" id="jsTab" role="tabpanel">
+                                <h3>Javascript Optimizations</h3>
+                                <p> When designing this site, we wanted to limit our use of Javascript, to ensure fast performance and universal accessibility. 
+                                    Thus the Javascript we did use was to load the Bootstrap and Jquery libraries, as well as to display a loading animation and
+                                    make fetch requests to Reddit, in order to retrieve the top posts from the r/ProgrammerHumor subreddit. 
+                                    <br></br>
+                                    Again, similar to CSS and HTML, we made sure to minify our JS after development, to squeeze the most amount of performance out.
+                                    We wanted to ensure that the website was extremely lightweight, hence our limited use of Javascript.  
+
+                                </p>
+                              </div>
+
+
+                          </div>
+                        </div>
+                      </div>
                 </div>
-                <div class="card panel-gradient">
-                    <img class="card-img-top" src="../images/lads/clark.jpg" class="profile-pic" alt="Clark Phan">
-                    <div class="card-body">
-                        <h5 class="card-title text-center text-white font-weight-bold">Clark Phan</h5>
-                        <h6 class="card-subtitle mb-2 text-warning text-center">Software Engineer, Memer</h6>
-                        <p class="card-text text-white">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Nec ullamcorper sit amet risus nullam eget felis eget nunc.
-                            Velit euismod in pellentesque massa placerat.
-                        </p>
-                    </div>
-                    <div class="card-footer panel-gradient text-center">
-                        <a href="https://clarkphan.com" target="_blank" class="card-link"><i class="fas fa-globe fa-3x"></i></a>
-                        <a href="https://github.com/ClarkPhan" target="_blank" class="card-link"><i class="fab fa-github-alt fa-3x"></i></a>
-                        <a href="https://linkedin.com/in/clark-phan" target="_blank" class="card-link"><i class="fab fa-linkedin fa-3x"></i></a>
-                    </div>
-                </div>
-            </div> 
+            </div>
         </div>
+        <div class="row p-3">
+            <div class="col">
+                <div class="card-deck">
+                    <div class="card panel-gradient">
+                        <img class="card-img-top" src="../images/lads/michael.jpg" class="profile-pic" alt="Michael Marsella">
+                        <div class="card-body">
+                            <h5 class="card-title text-center text-white font-weight-bold">Michael Marsella</h5>
+                            <h6 class="card-subtitle mb-2 text-warning text-center">Software Engineer, Youtuber</h6>
+                            <p class="card-text text-white">
+                                "CSE 190 taught me that website performance and optimization is a lot like swimming. Some are fast, some are slow, but not
+                                knowing how is the most dangerous."
+                            </p>
+                        </div>
+                        <div class="card-footer panel-gradient text-center">
+                            <a href="https://michaelmarsella.com/" target="_blank" class="card-link"><i class="fas fa-globe fa-3x"></i></a>
+                            <a href="https://github.com/mmarsell" target="_blank" class="card-link"><i class="fab fa-github-alt fa-3x"></i></a>
+                            <a href="https://www.linkedin.com/in/michael-marsella/" target="_blank" class="card-link"><i class="fab fa-linkedin fa-3x"></i></a>
+                        </div>
+                    </div>
+                    <div class="card panel-gradient">
+                        <img class="card-img-top" src="../images/lads/clark.jpg" class="profile-pic" alt="Clark Phan">
+                        <div class="card-body">
+                            <h5 class="card-title text-center text-white font-weight-bold">Clark Phan</h5>
+                            <h6 class="card-subtitle mb-2 text-warning text-center">Software Engineer, Memer</h6>
+                            <p class="card-text text-white">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Nec ullamcorper sit amet risus nullam eget felis eget nunc.
+                                Velit euismod in pellentesque massa placerat.
+                            </p>
+                        </div>
+                        <div class="card-footer panel-gradient text-center">
+                            <a href="https://clarkphan.com" target="_blank" class="card-link"><i class="fas fa-globe fa-3x"></i></a>
+                            <a href="https://github.com/ClarkPhan" target="_blank" class="card-link"><i class="fab fa-github-alt fa-3x"></i></a>
+                            <a href="https://linkedin.com/in/clark-phan" target="_blank" class="card-link"><i class="fab fa-linkedin fa-3x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
     </div>
 
     <!--Bootstrap scripts-->
@@ -59,5 +145,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="../js/loadNav.js"></script>
+    <script>
+        $('#aboutTabs a').on('click',function(e){
+            e.preventDefault()
+            $(this).tab('show')
+        })
+    </script>
 </body>
 </html>
