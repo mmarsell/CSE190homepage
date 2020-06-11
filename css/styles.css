@@ -42,14 +42,18 @@ nav {
 	}
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
 	#localmeme {
 		width: 900px;
 		height: 900px;
 	}
 }
 
-
+@media only screen and (max-width: 768px) {
+	.card-body {
+		flex: 0 1 auto;
+	}
+}
 
 .post {
 	width: 95%;
