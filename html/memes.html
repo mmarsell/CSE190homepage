@@ -10,20 +10,8 @@
 <body>
     <div class="container-fluid">
         <div id="load-nav"></div>
-        <div class="card-group">
-            <div class="card">
-                <div class="card-body text-center">
-                    <img id="localmeme" class="card-img-top img-fluid" alt="meme">
-                </div>
-                <div class="card-footer text-center">
-                    <button type="button" class="btn btn-primary" onclick="generateMeme()">Generate random meme</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div id="redditmeme"></div>
-                </div>
-            </div>
+        <div class="card-deck text-center">
+            <div id="redditmeme"></div>
         </div>
     </div>
 
@@ -58,13 +46,13 @@
                                 <div> 
                                     ${current.selftext}
                                     </br></br>
-                                    <span>${current.url}</span>
+                                    <img id="meme" src="${current.url}" class="img-thumbnail">
                                 </div>
                                 <div class="author">Posted by ${current.author} </div>
                             </a>`;
                         }
                     memeCard = document.getElementById("redditmeme")
-                    memeCard.insertAdjacentHTML("afterbegin",markup);
+                    memeCard.insertAdjacentHTML("afterbegin",`<div class="card">${markup}</div>`);
                 })
                 .catch(function(err){
                     console.log(err)
