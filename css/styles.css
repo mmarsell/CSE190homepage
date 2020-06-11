@@ -42,6 +42,11 @@ nav {
 	}
 }
 
+#localmeme {
+	width: 500px;
+	height: 500px;
+}
+
 .post {
 	width: 95%;
 	height: auto;
