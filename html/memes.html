@@ -37,19 +37,23 @@
                     let current, markup =``;
                     const posts = res.data.children;
                     markup=`<h3 class="text-center">Top posts from r/ProgrammerHumor </h3>`
-                    for (let i=0; i < 6; i++){
+                    let count = 0
+                    for (let i=0; count < 5; i++){
                         current = posts[i].data;
-                        markup += `
-                            <a class="post" target="_blank" href="https://www.reddit.com/${current.permalink}">
-                                <div class ="title">${current.title}</div>
-                                <div> 
-                                    ${current.selftext}
-                                    </br></br>
-                                    <img id="meme" src="${current.url}" class="img-thumbnail">
-                                </div>
-                                <div class="author">Posted by ${current.author} </div>
-                            </a>`;
+                        if(!current.is_video){
+                            markup += `
+                                <a class="post" target="_blank" href="https://www.reddit.com/${current.permalink}">
+                                    <div class ="title">${current.title}</div>
+                                    <div> 
+                                        ${current.selftext}
+                                        </br></br>
+                                        <img id="meme" src="${current.url}" class="img-thumbnail">
+                                    </div>
+                                    <div class="author">Posted by ${current.author} </div>
+                                </a>`;
+                            count++
                         }
+                    }
                     memeCard = document.getElementById("redditmeme")
                     memeCard.insertAdjacentHTML("afterbegin",`<div class="card">${markup}</div>`);
                     preloader.style.display = "none";
