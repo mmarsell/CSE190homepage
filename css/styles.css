@@ -29,6 +29,10 @@ nav {
 	#profile-pic {
 		width: 500px;
 	}
+	
+	#bestPracticesDeck {
+		width:50%;
+	}
 }
 
 @keyframes gradient {
