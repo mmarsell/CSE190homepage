@@ -26,6 +26,12 @@ nav {
 	box-shadow: 7px 7px 9px #414141;
 }
 
+@media (min-width: 1025px) {
+	#profile-pic {
+		width: 500px;
+	}
+}
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -69,3 +75,4 @@ nav {
   }
   
   .title { font-weight: bold; }
+
